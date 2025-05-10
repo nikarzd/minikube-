@@ -12,8 +12,8 @@ docker-compose.yaml: Used to run multiple containers (e.g., app + database).
 Local_Config.json: Configuration for local development (like database connection).
 
 deployment/: Kubernetes configuration files for deploying the app and database.
-
-💻 Step 2: Run the App Locally (Without Docker)
+-----------------------------------------------------------------------------------
+Step 2: Run the App Locally (Without Docker)
 You can first test the app on your local machine:
 
 1. Install the dependencies
@@ -27,8 +27,8 @@ Copy
 Edit
 python main.py
 If it throws an error, check the Local_Config.json file — it probably contains database settings or environment configs.
-
-🐳 Step 3: Run the App Using Docker + Docker Compose
+------------------------------------------------------------------------------------
+ Step 3: Run the App Using Docker + Docker Compose
 This is the containerized version of the app.
 
 1. Build Docker image (optional)
@@ -46,8 +46,8 @@ Copy
 Edit
 docker-compose up --build
 The docker-compose.yaml probably has two services: one for the URL shortener and one for the database (like MongoDB or PostgreSQL).
-
-☸️ Step 4: Deploy the App Using Kubernetes
+-----------------------------------------------------------------------------------------------------------------------------------
+Step 4: Deploy the App Using Kubernetes
 Now let's move to Kubernetes for deployment.
 
 1. Apply the ConfigMap
@@ -75,7 +75,8 @@ Copy
 Edit
 kubectl get pods
 kubectl get services
-🌐 Step 5: Access the Application
+------------------------------------------------------------------------------------------------------------------
+Step 5: Access the Application
 Once the services are running:
 
 Use kubectl port-forward or minikube service to expose the app.
@@ -89,8 +90,8 @@ Copy
 Edit
 minikube service url-service
 This should open your app in a browser.
-
-⚠️ Final Notes
+-------------------------------------------------------------------------------------------------------
+⚠️ Final Notes:
 Make sure Local_Config.json values match what the app expects.
 
 In Kubernetes, the app must connect to the database using the service name defined in db-service.yaml.
